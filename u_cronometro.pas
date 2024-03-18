@@ -15,6 +15,8 @@ type
     lb_segundos: TLabel;
     MediaPlayer1: TMediaPlayer;
     btn_play: TSpeedButton;
+    procedure t_tempoTimer(Sender: TObject);
+    procedure btn_playClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,5 +29,30 @@ var
 implementation
 
 {$R *.dfm}
+
+//Rotina para quando o timer for iniciado atraves do speedButton
+procedure TForm1.btn_playClick(Sender: TObject);
+begin
+  t_tempo.Enabled := true;
+end;
+
+procedure TForm1.t_tempoTimer(Sender: TObject);
+ var seg, min, cont:Integer;
+begin
+// o texto na propriedade caption do label é armazenado na variavel seg
+//como a variavel é um inteiro, preciso converter strToInt
+  seg := strToInt(lb_segundos.Caption);
+  min := strToInt(lb_minutos.Caption);
+  cont := seg+1;
+
+  lb_segundos.Caption := intToStr(cont);
+
+  if lb_segundos.Caption = '60' then
+  begin
+    lb_segundos.Caption := '0';
+    lb_minutos.Caption := intToStr(StrToInt(lb_minutos.Caption) + 1);
+  end;
+
+end;
 
 end.
