@@ -1,0 +1,56 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Circle1: TCircle
+    Fill.Kind = Gradient
+    Fill.Gradient.Points = <
+      item
+        Color = claBlack
+        Offset = 0.000000000000000000
+      end
+      item
+        Color = xFF143310
+        Offset = 0.409937888383865400
+      end
+      item
+        Color = xFF30EB1A
+        Offset = 0.993788838386535600
+      end>
+    Fill.Gradient.StartPosition.X = 0.500000000000000000
+    Fill.Gradient.StartPosition.Y = 1.000000000000000000
+    Fill.Gradient.StopPosition.X = 0.499999970197677600
+    Fill.Gradient.StopPosition.Y = 0.000000000000000000
+    Position.X = 216.000000000000000000
+    Position.Y = 136.000000000000000000
+    Size.Width = 185.000000000000000000
+    Size.Height = 177.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Thickness = 15.000000000000000000
+    Stroke.Dash = Dot
+    object FloatAnimation1: TFloatAnimation
+      Duration = 0.200000002980232200
+      PropertyName = 'RotationAngle'
+      StartValue = 0.000000000000000000
+      StopValue = 360.000000000000000000
+    end
+  end
+  object Button1: TButton
+    Cursor = crHandPoint
+    Position.X = 256.000000000000000000
+    Position.Y = 321.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 56.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'playtoolbutton'
+    TabOrder = 2
+    Text = 'Button1'
+    OnClick = Button1Click
+  end
+end
