@@ -55,6 +55,7 @@ object Form1: TForm1
     Top = 92
     Width = 30
     Height = 30
+    Enabled = False
     Glyph.Data = {
       F6060000424DF606000000000000360000002800000018000000180000000100
       180000000000C0060000120B0000120B00000000000000000000FFFFFFFFFFFF
@@ -125,10 +126,32 @@ object Form1: TForm1
     ParentDoubleBuffered = False
     TabOrder = 0
   end
+  object btn_abrir: TButton
+    Left = 90
+    Top = 128
+    Width = 75
+    Height = 25
+    Caption = 'abrir'
+    TabOrder = 1
+    OnClick = btn_abrirClick
+  end
+  object txt_tempo: TEdit
+    Left = 90
+    Top = 8
+    Width = 75
+    Height = 23
+    Hint = 'Type Seconds'
+    TabOrder = 2
+    TextHint = 'TypeSeconds'
+  end
   object t_tempo: TTimer
     Enabled = False
     OnTimer = t_tempoTimer
     Left = 176
     Top = 48
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 240
+    Top = 32
   end
 end

@@ -15,8 +15,12 @@ type
     lb_segundos: TLabel;
     MediaPlayer1: TMediaPlayer;
     btn_play: TSpeedButton;
+    btn_abrir: TButton;
+    OpenDialog1: TOpenDialog;
+    txt_tempo: TEdit;
     procedure t_tempoTimer(Sender: TObject);
     procedure btn_playClick(Sender: TObject);
+    procedure btn_abrirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,6 +35,20 @@ implementation
 {$R *.dfm}
 
 //Rotina para quando o timer for iniciado atraves do speedButton
+procedure TForm1.btn_abrirClick(Sender: TObject);
+begin
+  if OpenDialog1.Execute then
+  begin
+  // o arquivo selecionado no OD1, será repassado para o reprodutor MP1
+    MediaPlayer1.FileName := OpenDialog1.FileName;
+    btn_play.Enabled := true;
+    lb_segundos.Caption := '0';
+    lb_minutos.Caption := '0';
+    txt_tempo.Text := '';
+  end;
+
+end;
+
 procedure TForm1.btn_playClick(Sender: TObject);
 begin
   t_tempo.Enabled := true;
@@ -52,6 +70,14 @@ begin
     lb_segundos.Caption := '0';
     lb_minutos.Caption := intToStr(StrToInt(lb_minutos.Caption) + 1);
   end;
+
+  if lb_segundos.Caption = txt_tempo.Text then
+  begin
+    t_tempo.Enabled := false;
+    mediaPlayer1.Open;
+    MediaPlayer1.Play;
+  end;
+
 
 end;
 
