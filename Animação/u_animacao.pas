@@ -11,12 +11,17 @@ uses
 type
   TForm1 = class(TForm)
     Circle1: TCircle;
-    Button1: TButton;
+    btn_play: TButton;
     FloatAnimation1: TFloatAnimation;
     txt_duracao: TEdit;
     Label2: TLabel;
-    procedure Button1Click(Sender: TObject);
+    btn_pause: TSpeedButton;
+    procedure btn_playClick(Sender: TObject);
     procedure FloatAnimation1Process(Sender: TObject);
+    procedure txt_duracaoKeyUp(Sender: TObject; var Key: Word;
+      var KeyChar: Char; Shift: TShiftState);
+    procedure btn_pauseClick(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -30,16 +35,37 @@ implementation
 
 {$R *.fmx}
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.btn_pauseClick(Sender: TObject);
+begin
+  FloatAnimation1.Enabled := False;
+end;
+
+procedure TForm1.btn_playClick(Sender: TObject);
 begin
   FloatAnimation1.Enabled := true;
+  btn_pause.Enabled := true;
 end;
+
 
 procedure TForm1.FloatAnimation1Process(Sender: TObject);
 var txt : double;
 begin
   txt := StrtoFloat(txt_duracao.Text);
   FloatAnimation1.Duration := txt ;
+end;
+
+procedure TForm1.txt_duracaoKeyUp(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+
+  if txt_duracao.Text <> '' then
+  begin
+    btn_play.Enabled := true;
+  end
+  else
+  begin
+    btn_play.Enabled := false;
+  end;
 end;
 
 end.

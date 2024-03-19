@@ -42,28 +42,29 @@ object Form1: TForm1
       StopValue = 360.000000000000000000
     end
   end
-  object Button1: TButton
+  object btn_play: TButton
     Cursor = crHandPoint
     Enabled = False
-    Position.X = 80.000000000000000000
+    Position.X = 79.000000000000000000
     Position.Y = 233.000000000000000000
-    Size.Width = 105.000000000000000000
-    Size.Height = 56.000000000000000000
+    Size.Width = 65.000000000000000000
+    Size.Height = 38.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'playtoolbutton'
-    TabOrder = 2
-    Text = 'Button1'
-    OnClick = Button1Click
+    TabOrder = 3
+    Text = 'btn_play'
+    OnClick = btn_playClick
   end
   object txt_duracao: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 3
+    TabOrder = 4
     Position.X = 249.000000000000000000
     Position.Y = 130.000000000000000000
     Size.Width = 104.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TextPrompt = 'Digite o Tempo (s)'
+    OnKeyUp = txt_duracaoKeyUp
   end
   object Label2: TLabel
     Position.X = 249.000000000000000000
@@ -73,5 +74,18 @@ object Form1: TForm1
     Size.PlatformDefault = False
     Text = 'Dura'#231#227'o'
     TabOrder = 0
+  end
+  object btn_pause: TSpeedButton
+    Enabled = False
+    Position.X = 152.000000000000000000
+    Position.Y = 233.000000000000000000
+    Scale.X = 1.500000000000000000
+    Scale.Y = 1.500000000000000000
+    Size.Width = 17.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'pausetoolbutton'
+    Text = 'btn_pause'
+    OnClick = btn_pauseClick
   end
 end
