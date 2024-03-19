@@ -1,0 +1,99 @@
+unit U_Calculadora;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit;
+
+type
+  TForm1 = class(TForm)
+    btn_0: TButton;
+    btn_1: TButton;
+    btn_2: TButton;
+    btn_3: TButton;
+    btn_4: TButton;
+    btn_5: TButton;
+    btn_6: TButton;
+    btn_7: TButton;
+    btn_8: TButton;
+    btn_9: TButton;
+    btn_igual: TButton;
+    btn_ponto: TButton;
+    btn_mult: TButton;
+    btn_sub: TButton;
+    btn_soma: TButton;
+    btn_div: TButton;
+    caixa_botoes: TLayout;
+    caixa_topo: TLayout;
+    txt_num1: TEdit;
+    txt_num2: TEdit;
+    lb_operador: TLabel;
+    procedure btn_subClick(Sender: TObject);
+    procedure btn_somaClick(Sender: TObject);
+    procedure btn_multClick(Sender: TObject);
+    procedure btn_divClick(Sender: TObject);
+    procedure btn_igualClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+
+
+procedure TForm1.btn_divClick(Sender: TObject);
+begin
+  lb_operador.Text := '/';
+  btn_soma.Enabled := true;
+  btn_div.Enabled := false;
+  btn_mult.Enabled := true;
+  btn_sub.Enabled := true;
+end;
+
+procedure TForm1.btn_igualClick(Sender: TObject);
+  var n1, n2:Double;
+begin
+  n1 := StrToFloat(txt_num1.Text);
+  n2 := StrToFloat(txt_num2.Text);
+
+  //Efetuando as operações
+  if(lb_operador = '+') then
+end;
+
+procedure TForm1.btn_multClick(Sender: TObject);
+begin
+  lb_operador.Text := 'x';
+  btn_soma.Enabled := true;
+  btn_div.Enabled := true;
+  btn_mult.Enabled := false;
+  btn_sub.Enabled := true;
+end;
+
+procedure TForm1.btn_somaClick(Sender: TObject);
+begin
+  lb_operador.Text := '+';
+  btn_soma.Enabled := false;
+  btn_div.Enabled := true;
+  btn_mult.Enabled := true;
+  btn_sub.Enabled := true;
+end;
+
+procedure TForm1.btn_subClick(Sender: TObject);
+begin
+  lb_operador.Text := '-';
+  btn_soma.Enabled := true;
+  btn_div.Enabled := true;
+  btn_mult.Enabled := true;
+  btn_sub.Enabled := false;
+end;
+
+end.
